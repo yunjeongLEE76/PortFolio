@@ -1,205 +1,69 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  overflow-x: hidden;
-  background: linear-gradient(#eaf5e1, #eaf5e1);
-}
-
-section {
-  position: relative;
   width: 100%;
-}
-section.mainPage {
-  padding-bottom: 50px;
-}
-section.mainPage .imageWrap {
   height: 100vh;
-  overflow-y: hidden;
+  background: url(../image/green_background.jpg) center center/cover no-repeat;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  /* hidden기능은 화면밖의 이미지들을 싹 없애는 기능이라 스크롤이 사라짐 */
 }
-@media only screen and (max-width: 768px) {
-  section.mainPage .imageWrap {
-    height: 500px;
-  }
+/* background:url() 포지션 / 사이즈(100px)이런걸로도 가능 반복유무 or 반복종류 */
+/* cover를 사용하면 가로 세로 비율은 유지하면서 꽉차도록 실행/no-repeat은 이미지를 반복하지 않겠다는 기능 */
+img {
+  width: 100%;
 }
-section.mainPage .imageWrap .parallaxImage {
+
+.title {
+  text-align: center;
+}
+
+.title img {
+  width: 60%;
+}
+
+.subTitle {
   position: fixed;
-  width: 100%;
-  height: inherit;
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-section.mainPage .imageWrap .parallaxImage:nth-child(1) {
-  background-image: url(../image/bird.png);
+  top: 20%;
+  left: 10px;
 }
 
-section.mainPage .imageWrap .parallaxImage:nth-child(2) {
-  background-image: url(../image/PF_background.png);
+.subTitle img {
+  width: 60px;
 }
 
-section.mainPage .imageWrap .parallaxImage:nth-child(3) {
-  background-image: url(../image/bird.png);
-}
-
-/* section.mainPage .imageWrap .parallaxImage:nth-child(4) {
-  background-image: url(../image/House_mountain.png);
-} */
-
-section.mainPage .imageWrap .parallaxImage:nth-child(5) {
-  background-image: url(../image/flowers.png);
-}
-
-section.mainPage .imageWrap .parallaxImage:nth-child(5) {
-  background-image: url(../image/main_4.png);
-}
-section.mainPage .imageWrap .parallaxImage:nth-child(6) {
-  background-image: url(../image/main_5.png);
-}
-section.subPage {
-  background: linear-gradient(rgb(1, 51, 12), #266f47, rgb(1, 49, 16));
-}
-section.subPage .parallaxImage {
-  position: relative;
-  background: url(../image/main_6.png) bottom center no-repeat;
-  background-size: cover;
-  height: 400px;
-  width: 100%;
-  top: -400px;
-}
-section.subPage .innerWrap {
+.contWrap {
   position: relative;
   margin: 0 auto;
-  padding: 100px 0 300px;
+  width: 80vw;
+  height: 100vh;
 }
-section.subPage .innerWrap .contWrap {
-  margin: 0 auto;
-  padding: 20px 40px;
+
+.contWrap div {
+  position: absolute;
+}
+
+.shadow {
   width: 700px;
-}
-@media only screen and (max-width: 768px) {
-  section.subPage .innerWrap .contWrap {
-    width: 100%;
-  }
-}
-section.subPage .innerWrap .contWrap p {
-  font-size: 20px;
-  line-height: 36px;
-  color: #f3f3f3;
-  margin: 20px 0;
-}
-/* # sourceMappingURL=interactive.css.map */
-
-/* * {
-  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-body {
-  overflow-x: hidden;
-  background: linear-gradient(#691c46, #691c46);
+.date {
+  width: 400px;
+  left: 50%;
+  top: 70%;
+  transform: translateX(-20%);
 }
 
-.innerWrap {
-  padding-top: 50%;
+.human {
+  width: 600px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-section {
-  position: relative;
-  width: 100%;
+.textImg {
+  width: 400px;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-10%);
 }
-
-section.mainPage {
-  position: fixed;
-  top: 0;
-  padding-bottom: 50px;
-}
-
-section.mainPage .box {
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-}
-
-section.mainPage .imageWrap {
-  height: 100vh;
-}
-
-@media only screen and (max-width: 768px) {
-  section.mainPage .imageWrap {
-    height: 70vh;
-  }
-}
-
-section.mainPage .imageWrap .parallaxImage {
-  position: fixed;
-  width: 100%;
-  height: inherit;
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  perspective: 400px;
-}
-
-section.mainPage .imageWrap .parallaxImage:nth-child(1) {
-  background-image: url(../image/sunforest_green.jpg);
-}
-
-section.mainPage .imageWrap .parallaxImage:nth-child(2) {
-  background-image: url(../image/light_mountain.png);
-}
-
-section.mainPage .imageWrap .parallaxImage:nth-child(3) {
-  background-image: url(../image/bird.png);
-}
-
-section.mainPage .imageWrap .parallaxImage:nth-child(4) {
-  background-image: url(../image/House_mountain.png);
-}
-
-section.mainPage .imageWrap .parallaxImage:nth-child(5) {
-  background-image: url(../image/flowers.png);
-}
-
-/* section.mainPage .imageWrap .parallaxImage:nth-child(6) {
-  background-image: url(../image/main_4.png);
-} */
-
-/* section.mainPage .imageWrap .parallaxImage:nth-child(7) {
-  background-image: url(../image/main_5.png);
-
-} */
-
-/* section.mainPage .imageWrap .parallaxImage:nth-child(8) {
-  background-image: url(../image/main_6.png);
-} */
-
-/* section.subPage {
-  z-index: 10;
-  padding-top: 100vh;
-  min-height: 60vh;
-}
-
-section.subPage .innerWrap {
-  position: relative;
-}
-
-section.subPage .innerWrap .contWrap {
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px 40px;
-  width: 700px;
-}
-
-@media only screen and (max-width: 768px) {
-  section.subPage .innerWrap .contWrap {
-    width: 100%;
-  }
-}
-
-section.subPage .innerWrap .contWrap p {
-  font-size: 20px;
-  line-height: 36px;
-  color: #f3f3f3;
-  margin: 20px 0;
-} */

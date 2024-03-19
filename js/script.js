@@ -1,87 +1,31 @@
-let scrollNum = 0;
-// let documentHeight = 0;
-// let windowHeight = 0;
-
-const imageAll = document.querySelectorAll(".imageWrap .parallaxImage");
-const totalNum = imageAll.length;
-const subPageImage = document.querySelector(".subPage .parallaxImage");
 let x = 0;
+// let y = 0;
+
 let targetX = 0;
-const speed = 0.1;
+// let targetY = 0;
+const speed = 0.07;
 
-window.addEventListener("scroll", () => {
-  scrollNum = window.scrollY;
+const contentAll = document.querySelectorAll(".contWrap img");
+//querySelectorAll은 css에 div객체가 list로 잡히기 때문에 사용할때 forEach를 사용하는편이다.
 
-  imageAll.forEach((item, index) => {
-    if (index < 5) {
-      item.style.transform = `translateY(${
-        scrollNum / (2 * (totalNum - index))
-      }px)`;
-    }
-  });
-});
-//   //   하단의 내용과 동일
+const shadow = contentAll[0];
+const date = contentAll[1];
+const human = contentAll[2];
+const textImg = contentAll[3];
 
-//   //   imageAll[0].style.transform = `translateY(${
-//   //     scrollNum / (2 * (totalNum - 0))
-//   //   }px)`;
-//   //   // -scrollNum/12
-
-//   //   imageAll[1].style.transform = `translateY(${
-//   //     scrollNum / (2 * (totalNum - 1))
-//   //   }px)`;
-//   //   //   -scrollNum/10
-
-//   //   imageAll[2].style.transform = `translateY(${
-//   //     scrollNum / (2 * (totalNum - 2))
-//   //   }px)`;
-
-//   //   imageAll[3].style.transform = `translateY(${
-//   //     scrollNum / (2 * (totalNum - 3))
-//   //   }px)`;
-
-//   //   imageAll[4].style.transform = `translateY(${
-//   //     scrollNum / (2 * (totalNum - 4))
-//   //   }px)`;
-
-//   //   imageAll[5].style.transform = `translateY(${
-//   //     scrollNum / (2 * (totalNum - 5))
-//   //   }px)`;
-// });
-
-window.addEventListener("mousemove", (e) => {
-  x = e.pageX - innerWidth / 2;
+window.addEventListener("mousemove", () => {
+  x = event.pageX - window.innerWidth / 2; //innerWidth? 브라우저 화면의 너비를 뜻함.
+  // y = event.pageY - window.innerHeight / 2;
 });
 
 const loop = () => {
   targetX += (x - targetX) * speed;
 
-  imageAll[4].style.transform = `scale(1.1) translateX(${-targetX / 150}px,${
-    scrollNum / (2 * (totalNum - 4))
-  }px)`;
-  imageAll[5].style.transform = `scale(1.1) translate(${-targetX / 70}px,${
-    scrollNum / (2 * (totalNum - 5))
-  }px)`;
-  subPageImage.style.transform = `scale(1.1) translateX(${-targetX / 20}px)`;
-  // scale은 그림의 크기를 1.1배키운다
+  shadow.style.transform = `translateX(${targetX / 35}px)`;
+  date.style.transform = `translateX(${targetX / 20}px)`;
+  human.style.transform = `translateX(${-targetX / 30}px)`; //-를 붙히면 내가 움직이는 반대방향으로 움직임.
+  textImg.style.transform = `translateX(${-targetX / 15}px)`;
 
   window.requestAnimationFrame(loop);
 };
 loop();
-
-// let scrollNum = 0;
-
-// const imageAll = document.querySelectorAll(".imageWrap .parallaxImage");
-// const totalNum = imageAll.length;
-// const subPageImage = document.querySelector(".subPage .parallaxImage");
-
-// window.addEventListener("scroll", () => {
-//   scrollNum = window.scrollY;
-
-//   imageAll.forEach((item, index) => {
-//     item.style.transform = `perspective(400px) translate3d(0,0,${
-//       scrollNum / (2 * (totalNum - index))
-//     }px)`;
-//     // translate3d는 (x값,y값,z(깊이)값)이며, perspective는
-//   });
-// });

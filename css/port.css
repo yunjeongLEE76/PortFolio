@@ -1,34 +1,94 @@
 body {
+  z-index: 1;
   width: 100%;
   height: 100vh;
   background: url(../image/green_background.jpg) center center/cover no-repeat;
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  /* overflow-x: hidden; */
   /* hidden기능은 화면밖의 이미지들을 싹 없애는 기능이라 스크롤이 사라짐 */
 }
 /* background:url() 포지션 / 사이즈(100px)이런걸로도 가능 반복유무 or 반복종류 */
 /* cover를 사용하면 가로 세로 비율은 유지하면서 꽉차도록 실행/no-repeat은 이미지를 반복하지 않겠다는 기능 */
+
+.typing {
+  position: absolute;
+  top: 30%;
+  left: 67%;
+}
+
+.text-one {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.text-two {
+  color: #124d0c;
+  font-weight: bold;
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  font-size: 2.5rem;
+  width: 0;
+  animation: typing 2s steps(30, end) forwards, blink 0.8s infinite;
+}
+
+.text-three .name {
+  color: #0e3309;
+  font-weight: bold;
+  overflow: hidden;
+  font-size: 2.5rem;
+  width: 0;
+  animation: type 3s steps(30, end) forwards;
+}
+
+.text-three {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+@keyframes type {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 50%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: rgb(81, 177, 91);
+  }
+}
+
 img {
   width: 100%;
 }
 
 .title {
   text-align: center;
+  margin-top: 0;
+  padding-top: 20px;
 }
 
 .title img {
   width: 60%;
-}
-
-.subTitle {
-  position: fixed;
-  top: 20%;
-  left: 10px;
-}
-
-.subTitle img {
-  width: 60px;
 }
 
 .contWrap {
@@ -43,27 +103,54 @@ img {
 }
 
 .shadow {
+  /* z-index: 50; */
   width: 700px;
-  left: 50%;
+  left: 30%;
   transform: translateX(-50%);
 }
 
 .date {
+  /* z-index: 80; */
   width: 400px;
-  left: 50%;
+  left: 30%;
   top: 70%;
   transform: translateX(-20%);
 }
 
 .human {
-  width: 600px;
-  left: 50%;
+  /* z-index: 100; */
+  width: 630px;
+  left: 30%;
+  top: 6%;
   transform: translateX(-50%);
 }
 
 .textImg {
+  /* z-index: 200; */
   width: 400px;
-  left: 50%;
+  left: 30%;
   top: 30%;
   transform: translateX(-10%);
+}
+
+/* .bottom .bottomImage {
+  z-index: 400;
+  position: relative;
+  background: url(../image/main_6.png) bottom center no-repeat;
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+  top: -400px;
+} */
+
+.mainIntro {
+  position: relative;
+  z-index: 1000;
+  background-color: rgb(255, 255, 255);
+}
+
+.contentInnerWrap {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 30px;
 }
